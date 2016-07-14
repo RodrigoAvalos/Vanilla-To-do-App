@@ -11,6 +11,8 @@ una lista hacia abajo con un checkbox
 var newTask = document.getElementById("new-task");
 var taskList = document.getElementById("task-list");
 
+var taskWrapper = document.getElementById('panel');
+
 function addTask(e){
 
   e.preventDefault();
@@ -39,7 +41,9 @@ function addTask(e){
     this.value = "";
 
     //Ejecutamos la función de tarea completada
+      visibleTask();
     completeTask();
+
   }
 }
 
@@ -60,9 +64,11 @@ function completeTask(){
     check.addEventListener("change",function(){
       if(this.checked){
         this.parentElement.classList.add("completed");
-      }else{
-        this.parentElement.removeClass();
       }
     });
   }
+}
+
+function visibleTask(){
+  taskWrapper.classList.add("panel");
 }
